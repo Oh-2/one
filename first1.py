@@ -9,7 +9,7 @@ st.markdown("업로드한 인구 통계 데이터를 바탕으로 **상위 5개 
 
 if uploaded_file is not None:
     # CSV 파일 읽기 (EUC-KR 인코딩)
-    df = pd.read_csv(202505_202505_연령별인구현황_월간.csv)
+    df = pd.read_csv("202505_202505_연령별인구현황_월간.csv", encoding='euc-kr')
     df.columns = df.columns.str.strip()  # 열 이름 공백 제거
 
     # 필요한 열 추출
