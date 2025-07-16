@@ -6,11 +6,10 @@ st.set_page_config(page_title="연령별 인구 현황 분석", layout="wide")
 st.title("📊 2025년 5월 기준 연령별 인구 현황 분석")
 st.markdown("업로드한 인구 통계 데이터를 바탕으로 **상위 5개 행정구역의 연령별 인구 현황**을 시각화합니다.")
 
-uploaded_file = st.file_uploader("CSV 파일 업로드 (EUC-KR 인코딩)", type="csv")
 
 if uploaded_file is not None:
     # CSV 파일 읽기 (EUC-KR 인코딩)
-    df = pd.read_csv(uploaded_file, encoding='euc-kr')
+    df = pd.read_csv()
     df.columns = df.columns.str.strip()  # 열 이름 공백 제거
 
     # 필요한 열 추출
