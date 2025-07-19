@@ -22,17 +22,22 @@ mean_precip = df.mean(axis=1)
 top5_regions = mean_precip.sort_values(ascending=False).head(5).index
 df_top5 = df.loc[top5_regions]
 
-# 평균 행 추가
-df_top5_with_avg = df_top5.copy()
-df_top5_with_avg.loc["평균"] = df_top5.mean()
+# ✅ 각 지역의 평균을 새로운 열로 추가
+df_top5_with_avg_col = df_top5.copy()
+df_top5_with_avg_col["평균"] = df_top5.mean(axis=1)
 
-# 📄 상위 5개 지역 + 평균값 표시
-st.subheader("📄 평균 강수량 상위 5개 지역 + 평균")
-st.dataframe(df_top5_with_avg)
+# ✅ 열 순서 조정: "평균" 열을 맨 앞으로
+cols = df_top5_with_avg_col.columns.tolist()
+cols = ["평균"] + [col for col in cols if col != "평균"]
+df_top5_with_avg_col = df_top5_with_avg_col[cols]
 
-# 🌧️ 연도별 선 그래프 (평균 제외)
+# 📄 상위 5개 지역 + 평균 열 표시
+st.subheader("📄 평균 강수량 상위 5개 지역 (지역별 평균 포함)")
+st.dataframe(df_top5_with_avg_col)
+
+# 🌧️ 선 그래프 (변경 없음)
+df_chart = df_top5.T
 st.subheader("🌧️ 연도별 강수량 변화 (상위 5개 지역)")
-st.line_chart(df_top5.T)
+st.line_chart(df_chart)
 
 st.caption("※ 강수량 단위는 mm로 가정합니다.")
-
