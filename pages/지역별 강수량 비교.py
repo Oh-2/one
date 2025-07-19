@@ -30,7 +30,7 @@ cols = ["평균"] + [col for col in cols if col != "평균"]
 df_top5_with_avg_col = df_top5_with_avg_col[cols]
 
 # 5. 📄 데이터 출력
-st.subheader("📄 평균 강수량 상위 5개 지역 (지역별 평균 포함)")
+st.subheader("📄 평균 강수량 상위 5개 지역")
 st.dataframe(df_top5_with_avg_col)
 
 # 6. 🌧️ 지역별 단일 선 그래프
