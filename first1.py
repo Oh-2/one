@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="목차", layout="centered")
+st.set_page_config(page_title="항목", layout="centered")
 
 st.title("📋항목")
 
