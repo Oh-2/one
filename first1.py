@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="목차", layout="centered")
 
-st.title("📋 대시보드 목차")
+st.title("📋항목")
 
 st.markdown("""
 <h1>2025년 5월 연령별 인구</h1>
